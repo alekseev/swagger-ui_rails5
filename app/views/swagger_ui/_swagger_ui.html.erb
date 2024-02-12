@@ -1,56 +1,19 @@
-<script type="text/javascript">
-  $(function () {
-    //hljs.configure({
-    //  highlightSizeThreshold: 5000
-    //});
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Swagger UI</title>
+    <link rel="stylesheet" type="text/css" href="/assets/swagger-ui/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/swagger-ui/index.css" />
+    <link rel="icon" type="image/png" href="/assets/swagger-ui/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/assets/swagger-ui/favicon-16x16.png" sizes="16x16" />
+  </head>
 
-    window.swaggerUi = new SwaggerUi({
-      url: '<%= discovery_url %>',
-      <% if defined?(api_key) %>
-        apiKey: '<%= api_key %>',
-      <% end %>
-      <% if defined?(validator_url) %>
-        validatorUrl: <%= validator_url %>,
-      <% end %>
-      dom_id: "swagger-ui-container",
-      supportHeaderParams: false,
-      supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
-      onComplete: function(swaggerApi, swaggerUi){
-        log("Loaded SwaggerUI");
-      },
-      onFailure: function(data) {
-        log("Unable to Load SwaggerUI");
-      },
-      docExpansion: "none",
-      jsonEditor: false,
-      defaultModelRendering: 'schema',
-      showRequestHeaders: true
-    });
-
-    window.swaggerUi.load();
-
-    function log() {
-      if ('console' in window) {
-        console.log.apply(console, arguments);
-      }
-    }
-  });
-
-</script>
-
-<div id='header'>
-  <div class="swagger-ui-wrap">
-    <a id="logo" href="http://swagger.io"><span class="logo__title">swagger</span></a>
-    <form id='api_selector'>
-      <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"/></div>
-      <div id='auth_container'></div>
-      <div class='input'><a id="explore" class="header__btn" href="#" data-sw-translate>Explore</a></div>
-    </form>
-  </div>
-</div>
-
-<div id="message-bar" class="swagger-ui-wrap">
-  &nbsp;
-</div>
-
-<div id="swagger-ui-container" class="swagger-ui-wrap"></div>
+  <body>
+    <div id="swagger-ui"></div>
+    <script src="/assets/swagger-ui/swagger-ui-bundle.js" charset="UTF-8"> </script>
+    <script src="/assets/swagger-ui/swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
+    <script src="/assets/swagger-ui/swagger-initializer.js" charset="UTF-8"> </script>
+  </body>
+</html>
